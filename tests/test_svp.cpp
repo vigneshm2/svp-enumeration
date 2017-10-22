@@ -1,8 +1,7 @@
 #include "knapsack.h"
 #include "util.h"
 #include "svp.h"
-#include <chrono>
-typedef std::chrono::high_resolution_clock Clock;
+#include <ctime>
 
 int main()
 {
@@ -18,9 +17,9 @@ int main()
     Vec<ZZ> v;
     RR r = conv<RR>(sqrt(n));
 
-    auto t1 = Clock::now();
+    double t1 = clock();
     int succ = SVP_1(v, b, r);
-    auto t2 = Clock::now();
+    double t2 = clock();
     if (succ)
     {
         cout << "SV: " << v << "\n";
@@ -29,7 +28,7 @@ int main()
     {
         cout << "None\n";
     }
-    int t = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
-    cout << "Took " << t << "ms\n";
+    double t = (t2 - t1) / CLOCKS_PER_SEC;
+    cout << "Took " << t << "s\n";
     return 0;
 }
