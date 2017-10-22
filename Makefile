@@ -1,0 +1,1 @@
+CPPFLAGS = -Wall -lntl -lgmp -lm
