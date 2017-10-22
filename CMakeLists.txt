@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.9)
 project (lattice)
 
+set (CMAKE_CXX_STANDARD 11)
 include_directories(include)
 list(APPEND LINK_LIBS gmp m ntl)
 file(GLOB SOURCES "src/*.cpp")
