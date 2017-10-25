@@ -44,7 +44,7 @@ void svp1_time_data(int argc, char *argv[])
     int u = atoi(argv[2]);
     for (int i = l; i <= u; i++)
     {
-        cout << "at " << i << "\n";
+        // cout << "at " << i << "\n";
         KnapSack k(i, 0.8);
         Mat<ZZ> b;
         k.CJLOSS(b);
