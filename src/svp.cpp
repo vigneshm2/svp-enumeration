@@ -27,6 +27,8 @@ int SVP_1(Vec<ZZ> &a, Mat<ZZ> &b, RR R)
 
 int SVP_1_main(Vec<ZZ> &v, Mat<ZZ> &b, RR R, int n)
 {
+    ZZ det;
+    LLL(det, b);
     RR Rs = sqr(R);
     Mat<RR> gu;    // gs mu
     Vec<RR> gnorm; // gs norms

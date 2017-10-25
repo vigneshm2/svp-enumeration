@@ -62,7 +62,7 @@ void svp1_time_data(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
-    svp1_time_data(argc, argv);
-    // return cjloss_svp(argc, argv);
+    // svp1_time_data(argc, argv);
+    cjloss_svp(argc, argv);
     return 0;
 }
