@@ -1,4 +1,5 @@
 #include <NTL/ZZ.h>
+#include <NTL/RR.h>
 #include "knapsack.h"
 
 using namespace NTL;
@@ -13,7 +14,8 @@ KnapSack::KnapSack(int _n, float d) : n(_n)
     int logA = (int)(n / d) + 1;
     ZZ asum;
     int n2 = (n >> 1);
-    for (int i = 0; i < n; i++)
+    a[0] = power2_ZZ(logA);
+    for (int i = 1; i < n; i++)
     {
         RandomBits(a[i], logA);
         asum += a[i];
@@ -61,4 +63,13 @@ void KnapSack::CJLOSS(Mat<ZZ> &b)
             b[i][n] = N * s;
         }
     }
+}
+
+double KnapSack::density()
+{
+    cout << "\na0: " << a[0] << " log: " << log(a[0]) << "\n";
+    double d = log(a[0]);
+    for (int i = 1; i < n; i++)
+        d = max(d, log(a[i]));
+    return n * log(2.0) / d;
 }
