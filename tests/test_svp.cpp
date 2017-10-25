@@ -11,7 +11,7 @@ void cjloss_svp(int argc, char *argv[])
 
     int n = 20;
     if (argc > 1)
-        n = atoi(argv[1]);
+        n = atoi(argv[2]);
     KnapSack k(n, 0.8);
     cout << k << "\n";
     Mat<ZZ> b;
@@ -40,8 +40,8 @@ void cjloss_svp(int argc, char *argv[])
 void svp1_time_data(int argc, char *argv[])
 {
     // find times for [l..u] and output
-    int l = atoi(argv[1]);
-    int u = atoi(argv[2]);
+    int l = atoi(argv[2]);
+    int u = atoi(argv[3]);
     for (int i = l; i <= u; i++)
     {
         // cout << "at " << i << "\n";
@@ -62,7 +62,9 @@ void svp1_time_data(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
-    // svp1_time_data(argc, argv);
-    cjloss_svp(argc, argv);
+    if (argv[1][0] == '0')
+        svp1_time_data(argc, argv);
+    else
+        cjloss_svp(argc, argv);
     return 0;
 }
